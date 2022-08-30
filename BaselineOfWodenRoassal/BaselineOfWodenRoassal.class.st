@@ -9,7 +9,7 @@ BaselineOfWodenRoassal >> baseline: spec [
     <baseline>
 	spec for: #'common' do: [
 		spec
-			baseline: #'WodenGameFramework' with: [ spec repository: 'github://ronsaldo/woden-core-game-framework' ];
+			baseline: #'WodenGameFramework' with: [ spec repository: 'github://desromech/woden-core-game-framework' ];
 			package: #'WodenRoassal-Core' with: [
 				spec requires: #( #'WodenGameFramework' ).
 			];
