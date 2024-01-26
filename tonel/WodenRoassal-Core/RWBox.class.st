@@ -8,8 +8,10 @@ Class {
 }
 
 { #category : #hooks }
-RWBox >> constructBasicShapeMesh [
+RWBox class >> constructBasicShapeMesh [
 	^ WDMeshBuilder new
 		addCubeWithWidth: 1.0 height: 1.0 depth: 1.0;
+		generateTexcoords0WithFacePlanarTransformWithScale: Vector2 ones;
+		generateTangentSpaceFrame;
 		mesh
 ]

@@ -4,18 +4,26 @@ I am basic geometric shape which typically provides some performance optimizatio
 Class {
 	#name : #RWBasicShape,
 	#superclass : #RWAbstractSolidShape,
+	#classInstVars : [
+		'basicShapeMeshTemplate'
+	],
 	#category : #'WodenRoassal-Core'
 }
 
 { #category : #hooks }
-RWBasicShape >> constructBasicShapeMesh [
-	self subclassResponsibility
+RWBasicShape class >> constructBasicShapeMesh [
+	^ self subclassResponsibility
+]
+
+{ #category : #'mesh template' }
+RWBasicShape class >> getOrCreateBasicShapeMeshTemplate [
+	^ basicShapeMeshTemplate ifNil: [ basicShapeMeshTemplate := self constructBasicShapeMesh ]
 ]
 
 { #category : #'scene presentation' }
 RWBasicShape >> constructInWodenSceneNode: node forElement: anElement [
 	| mesh shapeNode |
-	mesh := self constructBasicShapeMesh.
+	mesh := self class getOrCreateBasicShapeMeshTemplate copyWithMaterial: (self materialFor: anElement).
 	shapeNode := WDSceneNode new
 		transform: (self transformFor: anElement);
 		renderables: {mesh};

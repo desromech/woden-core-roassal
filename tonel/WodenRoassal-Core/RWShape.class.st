@@ -122,3 +122,10 @@ RWShape >> initialize [
 RWShape >> isNullShape [
 	^ false
 ]
+
+{ #category : #'attribute accessing' }
+RWShape >> materialFor: anElement [
+	^ WDMetallicRoughnessMaterial default
+		baseColorFactor: (self colorFor: anElement);
+		yourself
+]
