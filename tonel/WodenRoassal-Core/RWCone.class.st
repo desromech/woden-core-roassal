@@ -7,6 +7,11 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
+{ #category : #settings }
+RWCone class >> defaultSegments [
+	^ 16
+]
+
 { #category : #hooks }
 RWCone >> constructBasicShapeMesh [
 	^ WDMeshBuilder new

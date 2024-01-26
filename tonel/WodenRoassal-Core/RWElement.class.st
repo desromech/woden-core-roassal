@@ -15,7 +15,7 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #notification }
 RWElement >> addedInView: aView [
 	self assert: view isNil.
 	view := aView.
@@ -26,14 +26,16 @@ RWElement >> boundingBox [
 	^ boundingBox ifNil: [boundingBox := self localBoundingBox transformedWith: self transform ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #presentation }
 RWElement >> constructWodenSceneNode [
 	| node |
 	node := WDSceneNode new
 		transform: transform;
 		yourself.
 
-	shape constructInWodenSceneNode: node forElement: self.
+	(shape constructInWodenSceneNode: node forElement: self) ifNotNil: [ :shapeNode |
+		node add: shapeNode
+	].
 		
 	^ node
 ]

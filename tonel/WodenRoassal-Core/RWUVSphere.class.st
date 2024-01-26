@@ -7,6 +7,16 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
+{ #category : #settings }
+RWUVSphere class >> defaultSegments [
+	^ 16
+]
+
+{ #category : #settings }
+RWUVSphere class >> defaultSlices [
+	^ 16
+]
+
 { #category : #hooks }
 RWUVSphere >> constructBasicShapeMesh [
 	^ WDMeshBuilder new

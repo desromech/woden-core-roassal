@@ -6,3 +6,8 @@ Class {
 	#superclass : #RWCone,
 	#category : #'WodenRoassal-Core'
 }
+
+{ #category : #settings }
+RWPyramid class >> defaultSegments [
+	^ 4
+]

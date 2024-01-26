@@ -7,9 +7,9 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'scene presentation' }
 RWNullShape >> constructInWodenSceneNode: aWDSceneNode forElement: anElement [
-	"Nothing is required here."
+	^ nil
 ]
 
 { #category : #testing }

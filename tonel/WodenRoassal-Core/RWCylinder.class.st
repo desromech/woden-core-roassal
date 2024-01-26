@@ -7,6 +7,11 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
+{ #category : #settings }
+RWCylinder class >> defaultSegments [
+	^ 16
+]
+
 { #category : #hooks }
 RWCylinder >> constructBasicShapeMesh [
 	^ WDMeshBuilder new
