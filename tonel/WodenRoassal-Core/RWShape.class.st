@@ -5,9 +5,10 @@ Class {
 	#name : #RWShape,
 	#superclass : #Object,
 	#instVars : [
-		'color'
+		'color',
+		'roughness'
 	],
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #'instance creation' }
@@ -115,7 +116,7 @@ RWShape >> elementsOn: aCollectionOfModels [
 RWShape >> initialize [
 	super initialize.
 	color := Color white.
-	
+	roughness := 0.8.
 ]
 
 { #category : #testing }
@@ -127,5 +128,22 @@ RWShape >> isNullShape [
 RWShape >> materialFor: anElement [
 	^ WDMetallicRoughnessMaterial default
 		baseColorFactor: (self colorFor: anElement);
+		roughnessFactor: (self roughnessFor: anElement);
 		yourself
+]
+
+{ #category : #accessing }
+RWShape >> roughness: aValueOrASymbolOrAOneArgBlock [
+	"aValueOrASymbolOrAOneArgBlock is applied on the object model"
+	self roughness: [ :anElement | aValueOrASymbolOrAOneArgBlock rwValue: anElement model ]
+]
+
+{ #category : #accessing }
+RWShape >> roughnessElement: aValueOrASymbolOrAOneArgBlock [
+	color := aValueOrASymbolOrAOneArgBlock
+]
+
+{ #category : #private }
+RWShape >> roughnessFor: anElement [
+	^ roughness rwValue: anElement
 ]

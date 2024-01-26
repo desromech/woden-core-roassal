@@ -7,7 +7,7 @@ Class {
 	#classInstVars : [
 		'basicShapeMeshTemplate'
 	],
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #hooks }

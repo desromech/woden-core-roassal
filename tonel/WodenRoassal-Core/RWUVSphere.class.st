@@ -4,7 +4,7 @@ I am an uv sphere shape.
 Class {
 	#name : #RWUVSphere,
 	#superclass : #RWBasicShape,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #hooks }

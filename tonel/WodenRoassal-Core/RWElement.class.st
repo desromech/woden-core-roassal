@@ -12,7 +12,7 @@ Class {
 		'localBoundingBox',
 		'boundingBox'
 	],
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #notification }

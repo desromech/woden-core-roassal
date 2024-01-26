@@ -4,7 +4,7 @@ I am box shape.
 Class {
 	#name : #RWBox,
 	#superclass : #RWBasicShape,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #hooks }

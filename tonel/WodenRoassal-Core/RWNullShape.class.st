@@ -4,7 +4,7 @@ I am shape that does nothing.
 Class {
 	#name : #RWNullShape,
 	#superclass : #RWAbstractSolidShape,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #'scene presentation' }

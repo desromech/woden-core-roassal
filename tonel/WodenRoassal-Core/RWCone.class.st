@@ -4,7 +4,7 @@ I am cone shape.
 Class {
 	#name : #RWCone,
 	#superclass : #RWBasicShape,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #hooks }

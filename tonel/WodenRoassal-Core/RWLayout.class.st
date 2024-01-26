@@ -4,7 +4,7 @@ I am a specific layout in Woden Roassal.
 Class {
 	#name : #RWLayout,
 	#superclass : #Object,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #'instance creation' }

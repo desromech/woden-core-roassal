@@ -9,7 +9,7 @@ Class {
 		'height',
 		'depth'
 	],
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #testing }

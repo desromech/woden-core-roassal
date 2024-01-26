@@ -4,7 +4,7 @@ I am a layout that aligns the elements along a line on the Z axis.
 Class {
 	#name : #RWZLineLayout,
 	#superclass : #RWAbstractLineLayout,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #'instance creation' }

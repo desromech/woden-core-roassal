@@ -7,8 +7,25 @@ Class {
 	#instVars : [
 		'gap'
 	],
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
+
+{ #category : #testing }
+RWAbstractLineLayout class >> isAbstract [
+	^ self == RWAbstractLineLayout
+]
+
+{ #category : #accessing }
+RWAbstractLineLayout >> gap [
+
+	^ gap
+]
+
+{ #category : #accessing }
+RWAbstractLineLayout >> gap: anObject [
+
+	gap := anObject
+]
 
 { #category : #initialization }
 RWAbstractLineLayout >> initialize [

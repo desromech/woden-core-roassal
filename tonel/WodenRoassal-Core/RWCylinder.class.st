@@ -4,7 +4,7 @@ I am a cylinder shape.
 Class {
 	#name : #RWCylinder,
 	#superclass : #RWBasicShape,
-	#category : #'WodenRoassal-Core'
+	#category : #'WodenRoassal-Core-Core'
 }
 
 { #category : #hooks }
