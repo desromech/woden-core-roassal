@@ -8,6 +8,19 @@ Class {
 }
 
 { #category : #tests }
+RWElementTest >> testGrowingCubes [
+
+	| v shape es |
+	v := RWView new.
+	shape := RWBox new size: #yourself.
+	es := shape elementsOn: (1 to: 3 by: 0.5).
+	v addAll: es. 
+	
+	"We cannot test much because Renderable does not have bounding box"
+	self assert: (es first boundingBox extent closeTo: (Vector3 x: 1.0 y: 1.0 z: 1.0))
+]
+
+{ #category : #tests }
 RWElementTest >> testNew [
 	| element |
 	element := RWElement new.
@@ -86,5 +99,33 @@ RWElementTest >> testTranslateToX [
 
 	element translateToX: -3.
 	self assert: element position equals: (Vector3 x: -3 y: 2 z: 3).
+
+]
+
+{ #category : #tests }
+RWElementTest >> testTranslateToY [
+	| element |
+	element := RWElement new.
+	self assert: element position equals: Vector3 zeros.
+
+	element translateByX: 1 y: 2 z: 3.
+	self assert: element position equals: (Vector3 x: 1 y: 2 z: 3).
+
+	element translateToY: -3.
+	self assert: element position equals: (Vector3 x: 1 y: -3 z: 3).
+
+]
+
+{ #category : #tests }
+RWElementTest >> testTranslateToZ [
+	| element |
+	element := RWElement new.
+	self assert: element position equals: Vector3 zeros.
+
+	element translateByX: 1 y: 2 z: 3.
+	self assert: element position equals: (Vector3 x: 1 y: 2 z: 3).
+
+	element translateToZ: -3.
+	self assert: element position equals: (Vector3 x: 1 y: 2 z: -3).
 
 ]

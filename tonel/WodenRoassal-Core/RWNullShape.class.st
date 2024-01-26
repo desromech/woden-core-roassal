@@ -3,7 +3,7 @@ I am shape that does nothing.
 "
 Class {
 	#name : #RWNullShape,
-	#superclass : #RWShape,
+	#superclass : #RWAbstractSolidShape,
 	#category : #'WodenRoassal-Core'
 }
 

@@ -7,12 +7,9 @@ Class {
 	#category : #'WodenRoassal-Core'
 }
 
-{ #category : #'as yet unclassified' }
-RWBox >> constructInWodenSceneNode: node forElement: anElement [
-	| mesh |
-	mesh := WDMeshBuilder new
+{ #category : #hooks }
+RWBox >> constructBasicShapeMesh [
+	^ WDMeshBuilder new
 		addCubeWithWidth: 1.0 height: 1.0 depth: 1.0;
-		mesh.
-	node renderables: {mesh}.
-
+		mesh
 ]

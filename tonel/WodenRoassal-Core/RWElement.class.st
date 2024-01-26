@@ -8,7 +8,9 @@ Class {
 		'model',
 		'transform',
 		'shape',
-		'view'
+		'view',
+		'localBoundingBox',
+		'boundingBox'
 	],
 	#category : #'WodenRoassal-Core'
 }
@@ -17,6 +19,11 @@ Class {
 RWElement >> addedInView: aView [
 	self assert: view isNil.
 	view := aView.
+]
+
+{ #category : #accessing }
+RWElement >> boundingBox [
+	^ boundingBox ifNil: [boundingBox := self localBoundingBox transformedWith: self transform ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -33,17 +40,17 @@ RWElement >> constructWodenSceneNode [
 
 { #category : #accessing }
 RWElement >> depth [
-	^ self extent z
+	^ shape depthFor: self
 ]
 
 { #category : #accessing }
 RWElement >> extent [
-	^ Vector3 ones
+	^ Vector3 x: self width y: self height z: self depth
 ]
 
 { #category : #accessing }
 RWElement >> height [
-	^ self extent y
+	^ shape heightFor: self
 ]
 
 { #category : #initialization }
@@ -51,6 +58,11 @@ RWElement >> initialize [
 	super initialize.
 	transform := TRSTransform3D identity.
 	shape := RWNullShape new.
+]
+
+{ #category : #accessing }
+RWElement >> localBoundingBox [
+	^ localBoundingBox ifNil: [ localBoundingBox := shape boundingBoxFor: self ]
 ]
 
 { #category : #accessing }
@@ -145,6 +157,18 @@ RWElement >> translateToX: newXPosition [
 	
 ]
 
+{ #category : #transformations }
+RWElement >> translateToY: newYPosition [
+	self position: (self position copy y: newYPosition)
+	
+]
+
+{ #category : #transformations }
+RWElement >> translateToZ: newZPosition [
+	self position: (self position copy z: newZPosition)
+	
+]
+
 { #category : #accessing }
 RWElement >> view [
 
@@ -153,5 +177,5 @@ RWElement >> view [
 
 { #category : #accessing }
 RWElement >> width [
-	^ self extent x
+	^ shape widthFor: self
 ]

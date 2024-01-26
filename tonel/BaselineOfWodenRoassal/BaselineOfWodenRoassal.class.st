@@ -13,6 +13,9 @@ BaselineOfWodenRoassal >> baseline: spec [
 			package: #'WodenRoassal-Core' with: [
 				spec requires: #( #'WodenGameFramework' ).
 			];
+			package: #'WodenRoassal-Examples' with: [
+				spec requires: #( #'WodenRoassal-Core' ).
+			];
 			package: #'WodenRoassal-Tests' with: [
 				spec requires: #( #'WodenRoassal-Core' ).
 			]

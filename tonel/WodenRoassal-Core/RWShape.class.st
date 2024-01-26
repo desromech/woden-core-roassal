@@ -4,8 +4,31 @@ I am shape that is used by the elements in Woden Roassal.
 Class {
 	#name : #RWShape,
 	#superclass : #Object,
+	#instVars : [
+		'color'
+	],
 	#category : #'WodenRoassal-Core'
 }
+
+{ #category : #'instance creation' }
+RWShape class >> black [
+	^ self color: Color black
+]
+
+{ #category : #'instance creation' }
+RWShape class >> blue [
+	^ self color: Color blue
+]
+
+{ #category : #'instance creation' }
+RWShape class >> color: aColor [
+	^ self new color: aColor
+]
+
+{ #category : #'instance creation' }
+RWShape class >> cyan [
+	^ self color: Color cyan
+]
 
 { #category : #requirements }
 RWShape class >> element [
@@ -22,7 +45,53 @@ RWShape class >> elementsOn: aModel [
 	^ self new elementsOn: aModel
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
+RWShape class >> green [
+	^ self color: Color green
+]
+
+{ #category : #'instance creation' }
+RWShape class >> magenta [
+	^ self color: Color magenta
+]
+
+{ #category : #'instance creation' }
+RWShape class >> red [
+	^ self color: Color red
+]
+
+{ #category : #'instance creation' }
+RWShape class >> white [
+	^ self color: Color white
+]
+
+{ #category : #'instance creation' }
+RWShape class >> yellow [
+	^ self color: Color yellow
+]
+
+{ #category : #'attribute accessing' }
+RWShape >> boundingBoxFor: element [
+	self subclassResponsibility
+]
+
+{ #category : #accessing }
+RWShape >> color: aValueOrASymbolOrAOneArgBlock [
+	"aValueOrASymbolOrAOneArgBlock is applied on the object model"
+	self colorElement: [ :anElement | aValueOrASymbolOrAOneArgBlock rwValue: anElement model ]
+]
+
+{ #category : #accessing }
+RWShape >> colorElement: aValueOrASymbolOrAOneArgBlock [
+	color := aValueOrASymbolOrAOneArgBlock
+]
+
+{ #category : #private }
+RWShape >> colorFor: anElement [
+	^ color rwValue: anElement
+]
+
+{ #category : #'scene presentation' }
 RWShape >> constructInWodenSceneNode: aWDSceneNode forElement: anElement [
 	self subclassResponsibility
 ]
@@ -40,6 +109,13 @@ RWShape >> elementOn: aModel [
 { #category : #requirements }
 RWShape >> elementsOn: aCollectionOfModels [
 	^ aCollectionOfModels collect: [ :eachElement | self elementOn: eachElement ]
+]
+
+{ #category : #initialization }
+RWShape >> initialize [
+	super initialize.
+	color := Color white.
+	
 ]
 
 { #category : #testing }
