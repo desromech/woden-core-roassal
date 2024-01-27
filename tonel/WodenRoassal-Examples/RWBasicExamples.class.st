@@ -43,6 +43,17 @@ RWBasicExamples class >> exampleOneCylinder [
 ]
 
 { #category : #'examples - shapes' }
+RWBasicExamples class >> exampleOneNormalTextured2Box [
+	| v |
+	v := RWView new.
+	v add: (RWBox new
+		texture: WDSceneExamples checkboardTexture;
+		normalTexture: WDSceneExamples checkboardNormalTexture;
+		yourself) element.
+	v open
+]
+
+{ #category : #'examples - shapes' }
 RWBasicExamples class >> exampleOnePyramid [
 	| v |
 	v := RWView new.
@@ -55,6 +66,14 @@ RWBasicExamples class >> exampleOneRedBox [
 	| v |
 	v := RWView new.
 	v add: RWBox red element.
+	v open
+]
+
+{ #category : #'examples - shapes' }
+RWBasicExamples class >> exampleOneTexturedBox [
+	| v |
+	v := RWView new.
+	v add: (RWBox new texture: WDSceneExamples checkboardTexture) element.
 	v open
 ]
 

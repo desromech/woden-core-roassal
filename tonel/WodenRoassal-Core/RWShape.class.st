@@ -6,7 +6,9 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'color',
-		'roughness'
+		'roughness',
+		'texture',
+		'normalTexture'
 	],
 	#category : #'WodenRoassal-Core-Core'
 }
@@ -87,7 +89,7 @@ RWShape >> colorElement: aValueOrASymbolOrAOneArgBlock [
 	color := aValueOrASymbolOrAOneArgBlock
 ]
 
-{ #category : #private }
+{ #category : #'attribute accessing' }
 RWShape >> colorFor: anElement [
 	^ color rwValue: anElement
 ]
@@ -116,7 +118,7 @@ RWShape >> elementsOn: aCollectionOfModels [
 RWShape >> initialize [
 	super initialize.
 	color := Color white.
-	roughness := 0.8.
+	roughness := 0.6.
 ]
 
 { #category : #testing }
@@ -128,8 +130,26 @@ RWShape >> isNullShape [
 RWShape >> materialFor: anElement [
 	^ WDMetallicRoughnessMaterial default
 		baseColorFactor: (self colorFor: anElement);
+		baseColorTexture: (self textureFor: anElement);
+		normalTexture: (self normalTextureFor: anElement);
 		roughnessFactor: (self roughnessFor: anElement);
 		yourself
+]
+
+{ #category : #accessing }
+RWShape >> normalTexture: aValueOrASymbolOrAOneArgBlock [
+	"aValueOrASymbolOrAOneArgBlock is applied on the object model"
+	self normalTextureElement: [ :anElement | aValueOrASymbolOrAOneArgBlock rwValue: anElement model ]
+]
+
+{ #category : #accessing }
+RWShape >> normalTextureElement: aValueOrASymbolOrAOneArgBlock [
+	normalTexture := aValueOrASymbolOrAOneArgBlock
+]
+
+{ #category : #'attribute accessing' }
+RWShape >> normalTextureFor: anElement [
+	^ normalTexture rwValue: anElement
 ]
 
 { #category : #accessing }
@@ -143,7 +163,23 @@ RWShape >> roughnessElement: aValueOrASymbolOrAOneArgBlock [
 	color := aValueOrASymbolOrAOneArgBlock
 ]
 
-{ #category : #private }
+{ #category : #'attribute accessing' }
 RWShape >> roughnessFor: anElement [
 	^ roughness rwValue: anElement
+]
+
+{ #category : #accessing }
+RWShape >> texture: aValueOrASymbolOrAOneArgBlock [
+	"aValueOrASymbolOrAOneArgBlock is applied on the object model"
+	self textureElement: [ :anElement | aValueOrASymbolOrAOneArgBlock rwValue: anElement model ]
+]
+
+{ #category : #accessing }
+RWShape >> textureElement: aValueOrASymbolOrAOneArgBlock [
+	texture := aValueOrASymbolOrAOneArgBlock
+]
+
+{ #category : #'attribute accessing' }
+RWShape >> textureFor: anElement [
+	^ texture rwValue: anElement
 ]
