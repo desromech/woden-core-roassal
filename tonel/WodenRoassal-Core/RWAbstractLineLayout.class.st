@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'gap'
 	],
-	#category : #'WodenRoassal-Core-Core'
+	#category : #'WodenRoassal-Core-Layout'
 }
 
 { #category : #testing }

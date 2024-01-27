@@ -7,6 +7,45 @@ Class {
 	#category : #'WodenRoassal-Examples'
 }
 
+{ #category : #'examples - layout' }
+RWBasicExamples class >> exampleBoxLayout [
+	| v |
+	v := RWView new.
+	1 to: 1000 do: [ :i |
+		v add: RWBox element.
+	].
+
+	RWBoxLayout on: v elements.
+	v open
+]
+
+{ #category : #'examples - layout' }
+RWBasicExamples class >> exampleCircleLayout [
+	| v  |
+	v := RWView new.
+	v addAll: (RWBox elementsOn: (1 to: 10)).
+	v elements do: [ :each |
+		each
+			addInteraction: RWHighlightable;
+			addInteraction: RWPopup.
+	].
+
+	RWCircularLayout on: v elements.
+	v open
+]
+
+{ #category : #'examples - layout' }
+RWBasicExamples class >> exampleGridLayout [
+	| v |
+	v := RWView new.
+	1 to: 1000 do: [ :i |
+		v add: RWBox element.
+	].
+
+	RWXZGridLayout on: v elements.
+	v open
+]
+
 { #category : #'examples - model' }
 RWBasicExamples class >> exampleGrowingCubes [
 	| v shape es |
@@ -43,7 +82,7 @@ RWBasicExamples class >> exampleOneCylinder [
 ]
 
 { #category : #'examples - shapes' }
-RWBasicExamples class >> exampleOneNormalTextured2Box [
+RWBasicExamples class >> exampleOneNormalTexturedBox [
 	| v |
 	v := RWView new.
 	v add: (RWBox new

@@ -24,6 +24,10 @@ RWView >> addAll: aCollectionOfElements [
 	]
 ]
 
+{ #category : #adding }
+RWView >> addInteraction: anInteraction [
+]
+
 { #category : #'scene presentation' }
 RWView >> constructWodenScene [
 	| scene |

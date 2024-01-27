@@ -15,6 +15,10 @@ Class {
 	#category : #'WodenRoassal-Core-Core'
 }
 
+{ #category : #adding }
+RWElement >> addInteraction: anInteraction [
+]
+
 { #category : #notification }
 RWElement >> addedInView: aView [
 	self assert: view isNil.
@@ -154,9 +158,20 @@ RWElement >> translateByZ: translation [
 ]
 
 { #category : #transformations }
+RWElement >> translateTo: newPosition [
+	self position: newPosition
+	
+]
+
+{ #category : #transformations }
 RWElement >> translateToX: newXPosition [
 	self position: (self position copy x: newXPosition)
 	
+]
+
+{ #category : #transformations }
+RWElement >> translateToX: newX y: newY z: newZ [
+	self position: (Vector3 x: newX y: newY z: newZ)
 ]
 
 { #category : #transformations }
