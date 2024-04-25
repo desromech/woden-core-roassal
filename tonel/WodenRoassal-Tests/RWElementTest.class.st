@@ -31,10 +31,10 @@ RWElementTest >> testNew [
 	self assert: element rotation equals: Quaternion identity.
 	self assert: element transform equals: TRSTransform3D identity.
 	
-	self assert: element extent isNotNil.
-	self assert: element width isNotNil.
-	self assert: element height isNotNil.
-	self assert: element depth isNotNil.
+	self assert: element extent notNil.
+	self assert: element width notNil.
+	self assert: element height notNil.
+	self assert: element depth notNil.
 
 ]
 
